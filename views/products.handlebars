@@ -1,0 +1,16 @@
+<section class="grid-box">
+    {{#each productsPage}}
+        <div class="grid-product">
+            <img src="{{this.img}}" alt="Image Not Available"/>
+            <p>
+                Title : {{this.title}}
+            </p>
+            <p>
+                Price: {{this.price}}
+            </p>
+            <p>
+                Description: {{this.description}}
+            </p>
+        </div>
+    {{/each}}
+</section>

@@ -1,0 +1,23 @@
+<div>{{acceptedInput}}</div>
+
+<form method="POST" action ="/customer">
+    <label for="Name">Your Name</label> 
+    <p class="errors">{{nameError}}</p>   
+    <input type="text" id="Name" name="Name"><br>
+
+    <label for="Email">Email</label>
+    <p class="errors">{{emailError}}</p>    
+    <input type="text" id="Email" name="Email"><br>
+
+    <label for="Pass">Password</label>
+    {{#each passError}}  
+    <p class="errors">{{this}}</p>   
+    {{/each}}
+    <input type="text" id="Pass" name="Pass"><br>
+
+    <label for="Pass2">Confirm Password</label>
+    <p class="errors">{{pass2Error}}</p>    
+    <input type="text" id="Pass2" name="Pass2"><br><br>
+
+    <input type="submit" value="Register">
+</form>
