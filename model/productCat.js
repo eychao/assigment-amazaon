@@ -5,22 +5,22 @@ const productsCat=
     {
         this.fakeDB2.push({
             category:`Succelents`,
-            img: `sayuri.png`
+            img: `/img/sayuri.png`
         });
     
         this. fakeDB2.push({
             category:`Aglaonema`,
-            img: `aqChoco.png`
+            img: `/img/aqChoco.png`
         });
     
         this.fakeDB2.push({
             category:`Flowering`,
-            img: `hoyaMac.png`
+            img: `/img/hoyaMac.png`
         });
         
         this.fakeDB2.push({
             category:`Bonsai`,
-            img: `bonJun.png`
+            img: `/img/bonJun.png`
         });   
     },
     getProductsCat()

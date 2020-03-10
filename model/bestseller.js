@@ -4,19 +4,19 @@ const productsBS=
     init()
     {
         this.fakeDB3.push({
-            img: `bonJun.png`,            
+            img: `/img/bonJun.png`,            
             price:`32.99`}); 
         
         this. fakeDB3.push({
-            img: `aqChoco.png`,
+            img: `/img/aqChoco.png`,
             price:`39.99`});
     
         this.fakeDB3.push({
-            img: `hoyaMac.png`,
+            img: `/img/hoyaMac.png`,
             price:`43.99`});
 
         this.fakeDB3.push({
-            img: `jgdt.png`,
+            img: `/img/jgdt.png`,
             price:`75.00`});            
     },
     getBestseller()
