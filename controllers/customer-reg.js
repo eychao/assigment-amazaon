@@ -80,25 +80,27 @@ router.post("/registration",(req,res)=>{
     }
     
     //All user inputs valid
-    else{
-        //const sgMail = require('@sendgrid/mail');
-        res.render("customer",{
-            title:"Customer",
-            headingInfo: "Customer Registration",
-            acceptedInput: 'Registration Successful! You will receive an email from us.'
-            //send email
-            /*sgMail.setApiKey(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);
+    else{            
+            const sgMail = require('@sendgrid/mail');            
+            sgMail.setApiKey("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");
+            
             const msg = {
-            to: 'test@example.com',
-            from: 'test@example.com',
-            subject: 'Sending with Twilio SendGrid is Fun',
-            text: 'and easy to do anywhere, even with Node.js',
-            html: '<strong>and easy to do anywhere, even with Node.js</strong>',
+            to: emailUser,
+            from: 'eychao@myseneca.ca',
+            subject: 'Evergreen Customer Registration Submission',
+            html: 'Hello ' + nameUser + '. Thank you for registering with Evergreen.',
             };
-            sgMail.send(msg);*/
-        });
+
+            sgMail.send(msg);/*
+            .then(()=>{
+                res.redirect("/");
+            })
+            .catch(err=>{
+                console.log('Error ${err}');
+            })*/
+        
     }
 
-});  /*TESTING COMMIT*/
+});  
 
 module.exports = router;
