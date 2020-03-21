@@ -110,15 +110,18 @@ form{
     padding:20px 0px;  
 }
 
-.grid-box1 {
-    display: grid;
-    grid-template-columns: auto auto auto auto;
-    padding: 10px;
-}
 .grid-box {
     display: grid;
     grid-template-columns: auto auto auto;
     padding: 10px;
+}
+.grid-product1 {
+    display: inline-block;
+    background-color: rgba(255, 255, 255, 0.5); 
+    padding: 10px;   
+    text-align: justify;     
+    width: auto;
+    height: auto;
 }
 .grid-product {
     background-color: rgba(255, 255, 255, 0.5); 

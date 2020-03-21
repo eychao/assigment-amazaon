@@ -10,7 +10,7 @@ const productsCat=
     
         this. fakeDB2.push({
             category:`Aglaonema`,
-            img: `/img/aqChoco.png`
+            img: `/img/agChoco.png`
         });
     
         this.fakeDB2.push({

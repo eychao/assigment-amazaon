@@ -1,13 +1,13 @@
 <p>Category</p>
-<div class="grid-box1">
+<section>
     {{#each productsCat}}
-        <div class="grid-product">
+        <div class="grid-product1">
             <p>
-                Category: {{this.category}}
+                {{this.category}}
             </p>
             <img src="{{this.img}}" alt="Image Not Available"/>
     {{/each}}
-</div>
+</section>
 <p>Best Sellers</p>
 <div class="grid-box1">
     {{#each productsBS}}
