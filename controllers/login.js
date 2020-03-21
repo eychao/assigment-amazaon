@@ -11,16 +11,21 @@ router.get("/",(req,res)=>{
 
 //Login Page Post Data
 router.post("/user",(req,res)=>{
+    //error messages variables
     const errorMsgs = [];
     const errorEmail = [];
     const errorPass = [];
+
+    //user input values
+    const emailUser = req.body.Email;
+    const passUser = req.body.Pass;
     
     //Validation Not Null
-    if(req.body.Email == ""){
+    if(emailUser == ""){
         errorEmail.push("* You must enter your email");
         errorMsgs.push("* You must enter your email");
     }    
-    if (req.body.Pass == ""){
+    if (passUser == ""){
         errorPass.push("* You must enter your password");
         errorMsgs.push("* You must enter your password");
     }
@@ -32,8 +37,9 @@ router.post("/user",(req,res)=>{
             title:"Login",
             headingInfo: "Login",
             emailError: errorEmail,
-            Email: userEmail,
-            passError: errorPass           
+            Email: emailUser,
+            passError: errorPass,
+            Password: passUser           
         });
     }
     
