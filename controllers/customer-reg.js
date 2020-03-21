@@ -91,13 +91,13 @@ router.post("/registration",(req,res)=>{
             html: 'Hello ' + nameUser + '. Thank you for registering with Evergreen.',
             };
 
-            sgMail.send(msg);/*
+            sgMail.send(msg)
             .then(()=>{
                 res.redirect("/");
             })
             .catch(err=>{
                 console.log('Error ${err}');
-            })*/
+            })
         
     }
 
