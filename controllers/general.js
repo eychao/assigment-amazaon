@@ -10,7 +10,7 @@ router.get("/",(req,res)=>{
         title:"Home",
         headingInfo: "Home Page",
         productsCat :productCat.getProductsCat(),
-        productBS :productBS.getBestseller()
+        productsBS :productBS.getBestseller()
     });
 
 });

@@ -101,10 +101,11 @@ form{
     text-align: left;
     margin: auto;
 }
+
 .banner{
     background: #e70000;
     font-style: italic;
-    font-size: 60px;
+    font-size: xx-large;
     color: #fff;
     height: 40px; 
     padding:20px 0px;  

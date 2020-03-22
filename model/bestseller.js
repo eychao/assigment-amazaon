@@ -8,7 +8,7 @@ const productsBS=
             price:`32.99`}); 
         
         this. fakeDB3.push({
-            img: `/img/aqChoco.png`,
+            img: `/img/agChoco.png`,
             price:`39.99`});
     
         this.fakeDB3.push({

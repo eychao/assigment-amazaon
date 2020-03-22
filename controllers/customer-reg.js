@@ -82,13 +82,13 @@ router.post("/registration",(req,res)=>{
     //All user inputs valid
     else{            
             const sgMail = require('@sendgrid/mail');            
-            sgMail.setApiKey("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");
+            sgMail.setApiKey(process.env.SEND_GRID_API_KEY);
             
             const msg = {
             to: emailUser,
             from: 'eychao@myseneca.ca',
-            subject: 'Evergreen Customer Registration Submission',
-            html: 'Hello ' + nameUser + '. Thank you for registering with Evergreen.',
+            subject: 'Evergarden Customer Registration Submission',
+            html: 'Hello ' + nameUser + '. Thank you for registering with Evergarden.',
             };
 
             sgMail.send(msg)
@@ -97,10 +97,8 @@ router.post("/registration",(req,res)=>{
             })
             .catch(err=>{
                 console.log('Error ${err}');
-            })
-        
+            });        
     }
-
 });  
 
 module.exports = router;
