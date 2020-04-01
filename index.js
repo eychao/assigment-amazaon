@@ -1,9 +1,10 @@
-const express = require("express"); 
-const app = express();
+const express = require("express");
 const exphbs= require("express-handlebars");
 const bodyParser = require('body-parser'); //bodyParser
-require('dotenv').config({path: "./config/keys.env"}); //load environment variable file
 
+require('dotenv').config({path:"./config/keys.env"}); //load environment variable file
+
+const app = express();
 app.engine("handlebars",exphbs());
 app.set("view engine", "handlebars");
 
@@ -22,6 +23,7 @@ app.use("/products",productsController);
 app.use("/customer-reg",registrationController);
 app.use("/login",loginController);
 
+//set up server
 const PORT = process.env.PORT;
 app.listen(PORT,()=>{
     console.log(`Web Server Started`);
