@@ -1,0 +1,40 @@
+<h2>Add Task</h2>
+    
+    <form method="POST" action="/task/add">
+
+        <label>Title</label>
+        <input type="text" name="name" id="name"> <br><br>
+
+        <label>Price</label>
+        <input type="number" name="price" id="price"> <br><br>
+
+        <label>Description</label>
+        <textarea id="description" name="description"></textarea><br><br>
+
+        <label>Category</label>
+            <input type="radio" name="Succelents" id="Succelents">
+            <label for="Succelents">Succelents</label> <br>
+
+            <input type="radio" name="Aglaonema" id="Aglaonema">
+            <label for="Aglaonema">Aglaonema</label> <br>
+
+            <input type="radio" name="Flowering" id="Flowering">
+            <label for="Flowering">Flowering</label> <br>
+
+            <input type="radio" name="Bonsai" id="Bonsai">
+            <label for="Bonsai">Bonsai</label> <br><br>
+
+        <label>Bestseller</label>
+            <input type="radio" name="yes" id="yes">
+            <label for="yes">Yes</label> <br>
+
+            <input type="radio" name="no" id="no">
+            <label for="no">No</label> 
+        <br><br>
+
+        <label>File Upload</label>
+        <input type="file" name="profilePic" id="profilePic"> <br><br>
+
+        <input type="submit" value="Add Product">
+
+    </form>
