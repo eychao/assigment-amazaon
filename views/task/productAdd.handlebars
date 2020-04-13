@@ -12,28 +12,23 @@
         <textarea id="description" name="description"></textarea><br><br>
 
         <label>Category</label>
-            <input type="radio" name="Succelents" id="Succelents">
-            <label for="Succelents">Succelents</label> <br>
-
-            <input type="radio" name="Aglaonema" id="Aglaonema">
-            <label for="Aglaonema">Aglaonema</label> <br>
-
-            <input type="radio" name="Flowering" id="Flowering">
-            <label for="Flowering">Flowering</label> <br>
-
-            <input type="radio" name="Bonsai" id="Bonsai">
-            <label for="Bonsai">Bonsai</label> <br><br>
-
+        <select name="category">
+            <option value="Succelents">Succelents</option>
+            <option value="Aglaonema">Aglaonema</option>
+            <option value="Flowering">Flowering</option>
+            <option value="Bonsai">Bonsai</option>
+        </select>
+        <br><br>
+        
         <label>Bestseller</label>
-            <input type="radio" name="yes" id="yes">
-            <label for="yes">Yes</label> <br>
-
-            <input type="radio" name="no" id="no">
-            <label for="no">No</label> 
+        <select name="bestseller">
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select>
         <br><br>
 
-        <label>File Upload</label>
-        <input type="file" name="profilePic" id="profilePic"> <br><br>
+        <label>Picture Upload</label>
+        <input type="file" name="img" id="img"> <br><br>
 
         <input type="submit" value="Add Product">
 
