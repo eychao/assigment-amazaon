@@ -136,3 +136,37 @@ form{
     font-weight: bold;
     color: red;
 }
+.modifyDelete-button{
+    display:inline-block;
+    width: 80px;
+    text-decoration: none;
+    text-align: center;
+    background-color: rgb(71, 71, 71);
+    color:#fff;
+    padding:10px 20px; 
+}
+.dashTable{
+    border: 3px solid;
+    border-spacing: 3px;
+    text-align: center;
+    padding: 10px;
+}
+th{
+    padding: 10px 15px;
+}
+.imgtr{
+    width: 100px;
+}
+td{
+    border: 3px solid;
+    height: auto;
+    text-align: center; 
+}
+.imgDash{    
+    width: 100%;
+    height: auto;
+}
+.desDash{
+    width: 30%;
+    text-align: left;
+}

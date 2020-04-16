@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router();
 const productModel = require("../model/product"); 
+const moment = require('moment');
 
 router.get("/add",(req,res)=>{          //Route to Add Product Form
     res.render("task/productAdd")
@@ -20,13 +21,35 @@ router.post("/add",(req,res)=>{
     const task = new productModel(newProduct); //create document to insert to database
     task.save()
     .then(()=>{
-        res.redirect("/task/list")
+        res.redirect("/task/list");
     })
     .catch(err=>console.log('Error happened when inserting in the database: ${err}'));
 });
 
 router.get("/list",(req,res)=>{         //Route to get all product list
-    res.render("task/taskDashboard");
+    //pull from database, get products 
+    //inject products into productDashboard
+    productModel.find()    //pull only status: "open" documents -->productModel.find({status:"Open"})
+    .then((products)=>{
+        const selectedProducts = products.map(product=>{
+            const dateCreated = moment(product.dateCreated).format('MMMM Do YYYY, h:mm:ss a'); //format date and time with moment.js
+            return{             // inject to Dashboard
+                //wanted to filtered you wanted to the /task/productDashboard
+                id: product._id,
+                img: product.img,
+                name: product.name,
+                price: product.price,
+                description: product.description,
+                category: product.category,
+                quantity: product.quantity,
+                dateCreated: dateCreated
+            }
+        });
+        res.render("task/productDashboard",{    //Filter out info wanted returned into new array
+            productData: selectedProducts       //display each product data in productDashboard
+        });
+    })
+    .catch(err=>console.log('Error happened when pulling from the database: ${err}'));
 });
 
 router.get("/description",(req,res)=>{

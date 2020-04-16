@@ -45,11 +45,12 @@ router.post("/user",(req,res)=>{
     
     //All user inputs valid
     else{
-        res.render("login",{
+        res.render("clerkDashboard");
+        /*res.render("login",{
             title:"Login",
             headingInfo: "Login",
             acceptedInput: 'Welcome Back!'
-        });
+        });*/
     }
 });
 

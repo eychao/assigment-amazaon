@@ -7,7 +7,7 @@ const productSchema = new Schema({
         required:true
     },
     price: {
-        type: Number,
+        type: mongoose.Types.Decimal128,
         required: true  
     },
     description: {
@@ -23,7 +23,7 @@ const productSchema = new Schema({
         required: true  
     },  
     bestseller: {
-        type: Boolean,
+        type: String,
         required: true  
     }, 
     img: {
@@ -33,14 +33,11 @@ const productSchema = new Schema({
     dateCreated: {
         type: Date,
         default: Date.now()
-    },
-    createdBy: {
-
-    } 
+    }
 
 });
  
-const productModel = mongoose.model('Product', productSchema);
+const productModel = mongoose.model('Product', productSchema);   //Product--> is named "products" in database
 module.exports = productModel;
 
 

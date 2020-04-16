@@ -2,11 +2,11 @@
     
     <form method="POST" action="/task/add">
 
-        <label>Title</label>
+        <label>Product Name</label>
         <input type="text" name="name" id="name"> <br><br>
 
         <label>Price</label>
-        <input type="number" name="price" id="price"> <br><br>
+        <input type="number" name="price" id="price" step=0.01> <br><br>
 
         <label>Description</label>
         <textarea id="description" name="description"></textarea><br><br>
@@ -20,6 +20,9 @@
         </select>
         <br><br>
         
+        <label>Quantity</label>
+        <input type="number" name="quantity" id="quantity"> <br><br>
+
         <label>Bestseller</label>
         <select name="bestseller">
             <option value="yes">Yes</option>
