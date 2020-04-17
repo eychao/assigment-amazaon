@@ -2,22 +2,23 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
-    title: {
+    name: {
         type:String,
         required:true
     },
-    description: {
+    email: {
         type:String,
         required:true
     },
-    price: Schema.Types.Decimal128,
-    status: {
+    password: {
         type: String,
-        default: "customer"
+        required:true
     },
     dateCreated: {
         type: Date,
         default: Date.now()
     }
-
 });
+
+const userModel = mongoose.model('User', userSchema);   //User--> is named "users" in database
+module.exports = userModel;

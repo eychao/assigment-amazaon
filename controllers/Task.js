@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router();
 const productModel = require("../model/product"); 
 const moment = require('moment');
+const path = require("path"); //core package of node, no need to install (not 3rd party package)
 
 router.get("/add",(req,res)=>{          //Route to Add Product Form
     res.render("task/productAdd")
@@ -20,10 +21,19 @@ router.post("/add",(req,res)=>{
     }
     const task = new productModel(newProduct); //create document to insert to database
     task.save()
-    .then(()=>{
-        res.redirect("/task/list");
+    .then((task)=>{
+        req.files.img.name = `product_img_${task._id}${req.files.img.name}${path.parse(req.files.img.name).ext}`;
+        req.files.img.mv(`public/img/${req.files.img.name}`) //move img to folder
+        .then(()=>{
+            productModel.updateOne({_id:task._id},{ //update product image
+                img: req.files.img.name
+            })
+            .then(()=>{
+                res.redirect("/task/list");
+            })
+        })       
     })
-    .catch(err=>console.log('Error happened when inserting in the database: ${err}'));
+    .catch(err=>console.log(`Error happened when inserting in the database: ${err}`));
 });
 
 router.get("/list",(req,res)=>{         //Route to get all product list
@@ -49,7 +59,7 @@ router.get("/list",(req,res)=>{         //Route to get all product list
             productData: selectedProducts       //display each product data in productDashboard
         });
     })
-    .catch(err=>console.log('Error happened when pulling from the database: ${err}'));
+    .catch(err=>console.log(`Error happened when pulling from the database: ${err}`));
 });
 
 router.get("/description",(req,res)=>{

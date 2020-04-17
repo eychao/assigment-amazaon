@@ -88,7 +88,7 @@ router.post("/registration",(req,res)=>{
             to: emailUser,
             from: 'eychao@myseneca.ca',
             subject: 'Evergarden Customer Registration Submission',
-            html: 'Hello ' + nameUser + '. Thank you for registering with Evergarden.',
+            html: `Hello ${nameUser}. Thank you for registering with Evergarden.`,
             };
 
             sgMail.send(msg)
@@ -96,7 +96,7 @@ router.post("/registration",(req,res)=>{
                 res.redirect("/");
             })
             .catch(err=>{
-                console.log('Error ${err}');
+                console.log(`Message Error: ${err}`);
             });        
     }
 });  

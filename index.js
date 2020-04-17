@@ -2,6 +2,7 @@ const express = require("express");
 const exphbs= require("express-handlebars");
 const bodyParser = require('body-parser'); //bodyParser
 const mongoose = require('mongoose');
+const fileUpload = require('express-fileupload'); //to upload file image
 
 require('dotenv').config({path:"./config/keys.env"}); //load environment variable file
 
@@ -19,6 +20,8 @@ const registrationController = require("./controllers/customer-reg");
 const loginController = require("./controllers/login");
 const taskController = require("./controllers/task");
 
+app.use(fileUpload());
+
 //map each controller to app object
 app.use("/",generalController);
 app.use("/products",productsController);
@@ -30,7 +33,7 @@ mongoose.connect(process.env.MONGODB_CONNECTION, {useNewUrlParser: true, useUnif
 .then(()=>{
     console.log('Connected to MongoDB Database');
 })
-.catch(err=>console.log('Connection Error to MongoDB Database ${err}'));
+.catch(err=>console.log(`Connection Error to MongoDB Database ${err}`));
 
 //set up server
 const PORT = process.env.PORT;

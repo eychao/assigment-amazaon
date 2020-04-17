@@ -1,6 +1,6 @@
 <h2>Add Task</h2>
     
-    <form method="POST" action="/task/add">
+    <form method="POST" action="/task/add" enctype="multipart/form-data"> <!--enctype="multipart/form-data" to store image as bytes-->
 
         <label>Product Name</label>
         <input type="text" name="name" id="name"> <br><br>
