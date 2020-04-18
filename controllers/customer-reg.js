@@ -1,5 +1,6 @@
 const express = require('express')
 const router = express.Router();
+const userModel = require("../model/user");
 
 //Route for the Registration Page
 router.get("/",(req,res)=>{
@@ -81,23 +82,37 @@ router.post("/registration",(req,res)=>{
     
     //All user inputs valid
     else{            
-            const sgMail = require('@sendgrid/mail');            
-            sgMail.setApiKey(process.env.SEND_GRID_API_KEY);
+        //insert into MongoDB database
+        const newUser = {
+            name: nameUser,
+            email: emailUser,
+            password: passUser
+        }
+        const user = new userModel(newUser); //create document to insert to database
+        user.save()
+        .catch(err=>console.log(`Error happened when inserting user into the database: ${err}`));
+
+        //send email to user, than redirect to homepage   
+        const sgMail = require('@sendgrid/mail');            
+        sgMail.setApiKey(process.env.SEND_GRID_API_KEY);
             
-            const msg = {
+        const msg = {
             to: emailUser,
             from: 'eychao@myseneca.ca',
             subject: 'Evergarden Customer Registration Submission',
-            html: `Hello ${nameUser}. Thank you for registering with Evergarden.`,
-            };
+            html: 
+            `Hello ${nameUser}. 
+            Thank you for registering with Evergarden.
+            `,
+        };
 
-            sgMail.send(msg)
-            .then(()=>{
-                res.redirect("/");
-            })
-            .catch(err=>{
-                console.log(`Message Error: ${err}`);
-            });        
+        sgMail.send(msg)
+        .then(()=>{
+            res.redirect("/");
+        })
+        .catch(err=>{
+            console.log(`Message Error: ${err}`);
+        });        
     }
 });  
 
